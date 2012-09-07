@@ -1,0 +1,1 @@
+(make-emacs-translucent)
