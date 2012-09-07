@@ -29,8 +29,7 @@
  '(diff-removed ((t (:foreground "Red"))))
  '(mode-line ((((type x w32 mac) (class color)) (:background "grey75" :foreground "black")))))
 
-(add-to-list 'load-path "~/.emacs.d")
-(load "platform")
+(load-file "platform.el")
 
 (defun linux-c-mode ()
   "C mode with adjusted defaults for use with the Linux kernel."
@@ -154,9 +153,11 @@ BEG and END (region to sort)."
           (goto-char next-line))))))
 
 
-(load "window")
-(load "cl")
-(load "org")
-(load "autostore")
-(unless (load "local" t)
-  (load "local-default" t))
+(load-file "window.el")
+(load-file "cl.el")
+(load-file "org.el")
+(load-file "autostore.el")
+(cond ((file-exists-p "local.el")
+       (load-file "local.el"))
+      ((file-exists-p "local-default.el")
+       (load-file "local-default.el")))
