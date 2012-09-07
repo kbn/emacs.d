@@ -84,7 +84,6 @@
 	      auto-mode-alist))
 
 (add-to-list 'load-path "~/lisp/org/lisp")
-(require 'desktop)
 
 (server-start)
 
@@ -136,6 +135,7 @@
 
 (global-set-key "\C-xv" 'do-revert-buffer)
 (global-set-key "\C-xt" 'do-term)
+(global-set-key "\C-xg" 'w3m-search)
 
 ;(setq grep-find-command
 ;      "find . -type f \".*\" -prune ! \( -name \"*.d\" -name \"*.o\" \) -print0 | xargs -0 -e grep -nH -e ")
@@ -168,3 +168,5 @@ BEG and END (region to sort)."
 (load-init "autostore")
 (or (load-init "local")
     (load-init "local-default"))
+
+(require 'desktop)
