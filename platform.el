@@ -4,6 +4,7 @@
 (defvar running-gnu-linux
   (string-match "linux" (prin1-to-string system-type)))
 
+(set-default-coding-systems 'utf-8-unix)
 (prefer-coding-system 'utf-8-unix)
 
   ;;;;
@@ -38,3 +39,13 @@
   (interactive)
   (setq buffer-display-table (make-display-table))
   (aset buffer-display-table ?\^M []))
+
+(defun dos2unix ()
+  "Convert a DOS formatted text buffer to UNIX format"
+  (interactive)
+  (set-buffer-file-coding-system 'undecided-unix nil))
+
+(defun unix2dos ()
+  "Convert a UNIX formatted text buffer to DOS format"
+  (interactive)
+  (set-buffer-file-coding-system 'undecided-dos nil))
