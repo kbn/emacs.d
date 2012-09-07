@@ -4,6 +4,8 @@
 (defvar running-gnu-linux
   (string-match "linux" (prin1-to-string system-type)))
 
+(prefer-coding-system 'utf-8-unix)
+
   ;;;;
   ;;;; cygwin support
   ;;;;
