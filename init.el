@@ -29,7 +29,16 @@
  '(diff-removed ((t (:foreground "Red"))))
  '(mode-line ((((type x w32 mac) (class color)) (:background "grey75" :foreground "black")))))
 
-(load-file "platform.el")
+(defun load-init (fname)
+  "Load .el init file from .emacs.d/"
+  (let ((path (concat (file-name-directory
+		       (or load-file-name buffer-file-name))
+		      fname ".el")))
+    (when (file-exists-p path)
+      (load-file path)
+      t)))
+
+(load-init "platform")
 
 (defun linux-c-mode ()
   "C mode with adjusted defaults for use with the Linux kernel."
@@ -153,11 +162,9 @@ BEG and END (region to sort)."
           (goto-char next-line))))))
 
 
-(load-file "window.el")
-(load-file "cl.el")
-(load-file "org.el")
-(load-file "autostore.el")
-(cond ((file-exists-p "local.el")
-       (load-file "local.el"))
-      ((file-exists-p "local-default.el")
-       (load-file "local-default.el")))
+(load-init "window")
+(load-init "cl")
+(load-init "org")
+(load-init "autostore")
+(or (load-init "local")
+    (load-init "local-default"))
