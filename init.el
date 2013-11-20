@@ -135,7 +135,6 @@
 
 (global-set-key "\C-xv" 'do-revert-buffer)
 (global-set-key "\C-xt" 'do-term)
-(global-set-key "\C-xg" 'w3m-search)
 
 ;(setq grep-find-command
 ;      "find . -type f \".*\" -prune ! \( -name \"*.d\" -name \"*.o\" \) -print0 | xargs -0 -e grep -nH -e ")
@@ -165,6 +164,7 @@ BEG and END (region to sort)."
 (load-init "window")
 (load-init "cl")
 (load-init "org")
+(load-init "git")
 (load-init "autostore")
 (or (load-init "local")
     (load-init "local-default"))
