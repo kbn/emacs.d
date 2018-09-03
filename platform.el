@@ -7,6 +7,28 @@
 (set-default-coding-systems 'utf-8-unix)
 (prefer-coding-system 'utf-8-unix)
 
+;; Use find/grep from MSYS git, if available
+(when running-ms-windows
+  (message "Running Windows")
+  (let ((git-bin "c:\\Program Files\\Git\\usr\\bin"))
+    (when (file-readable-p git-bin)
+      (message "With Git")
+      (setenv "PATH"
+	      (concat
+	       git-bin ";"
+	       (getenv "PATH")))
+
+;      (setf null-device "/dev/null"))))
+
+      ;; Prevent issues with the Windows null device (NUL)
+      ;; when using MSYS find with rgrep.
+      (defadvice grep-compute-defaults (around grep-compute-defaults-advice-null-device)
+	"Use MSYS's /dev/null as the null-device."
+	(let ((null-device "/dev/null"))
+	  ad-do-it))
+      (ad-activate 'grep-compute-defaults))))
+
+
   ;;;;
   ;;;; cygwin support
   ;;;;
