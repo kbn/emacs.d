@@ -5,7 +5,8 @@
 	       '("melpa" . "http://melpa.org/packages/") t)
   (when (< emacs-major-version 24)
     ;; For important compatibility libraries like cl-lib
-    (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))  (package-initialize))
+    (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+  (package-initialize))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -23,13 +24,28 @@
  '(desktop-enable t nil (desktop))
  '(fci-rule-color "#073642")
  '(global-font-lock-mode t nil (font-lock))
- '(grep-files-aliases (quote (("asm" . "*.[sS]") ("c" . "*.c") ("cc" . "*.cc *.cxx *.cpp *.C *.CC *.c++") ("cchh" . "*.cc *.[ch]xx *.[ch]pp *.[CHh] *.CC *.HH *.[ch]++") ("hh" . "*.hxx *.hpp *.[Hh] *.HH *.h++") ("ch" . "*.[ch] *.[ch]pp") ("el" . "*.el") ("h" . "*.h") ("l" . "[Cc]hange[Ll]og*") ("m" . "[Mm]akefile*") ("tex" . "*.tex") ("texi" . "*.texi"))))
+ '(grep-files-aliases
+   (quote
+    (("asm" . "*.[sS]")
+     ("c" . "*.c")
+     ("cc" . "*.cc *.cxx *.cpp *.C *.CC *.c++")
+     ("cchh" . "*.cc *.[ch]xx *.[ch]pp *.[CHh] *.CC *.HH *.[ch]++")
+     ("hh" . "*.hxx *.hpp *.[Hh] *.HH *.h++")
+     ("ch" . "*.[ch] *.[ch]pp")
+     ("el" . "*.el")
+     ("h" . "*.h")
+     ("l" . "[Cc]hange[Ll]og*")
+     ("m" . "[Mm]akefile*")
+     ("tex" . "*.tex")
+     ("texi" . "*.texi"))))
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-tail-colors (quote (("#073642" . 0) ("#546E00" . 20) ("#00736F" . 30) ("#00629D" . 50) ("#7B6000" . 60) ("#8B2C02" . 70) ("#93115C" . 85) ("#073642" . 100))))
  '(magit-diff-use-overlays nil)
  '(magit-use-overlays nil)
  '(menu-bar-mode nil)
- '(org-agenda-files (quote ("~/shared/Projects/Autostore/asplanner.org" "~/shared/doc/Cavatina/2010/Regnskap.org" "~/shared/org/cavatina.org" "~/shared/org/gtd.org")))
+ '(org-agenda-files
+   (quote
+    ("~/shared/Projects/Autostore/asplanner.org" "~/shared/doc/Cavatina/2010/Regnskap.org" "~/shared/org/cavatina.org" "~/shared/org/gtd.org")))
  '(py-python-command "ipython")
  '(py-python-command-args (quote ("-i")))
  '(safe-local-variable-values (quote ((c-basic-offset 4) (eval when (require (quote rainbow-mode) nil t) (rainbow-mode 1)))))
