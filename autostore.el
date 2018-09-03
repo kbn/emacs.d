@@ -11,6 +11,8 @@
 
   (global-set-key "\C-c\C-u" 'unixtime-convert))
 
+(setenv "AS_LIBRARY_PATH" "$HOME/src/jhc/lib")
+
 ;(defun slime-pause-router ()
 ;  (interactive)
 ;  (slime-send '(com.autostore.router::interface-pause)))
