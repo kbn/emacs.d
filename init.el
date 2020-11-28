@@ -142,47 +142,67 @@
 
 (load-init "platform")
 
-(defun linux-c-mode ()
-  "C mode with adjusted defaults for use with the Linux kernel."
-  (interactive)
-  (c-mode)
-  (c-set-style "K&R")
-  (setq c-basic-offset 8)
-  (setq font-lock-use-default-fonts nil)
-  (setq font-lock-use-default-colors t)
-  (setq delete-key-deletes-forward t)
-  (setq c-electric-delete 'delete-char)
-  (setq c-delete-function 'delete-char)) ;;c-electric-delete delete-char))
+(defconst autostore-c++-style
+  '("k&r"
+    (c-basic-offset . 4)
+    (c-tab-always-indent . t))
+  "AutoStore C++")
 
-(defun linux-c++-mode ()
-  "C++ mode with adjusted defaults."
-  (interactive)
-  (c++-mode)
-  (c-set-style "K&R")
-  (setq c-basic-offset 8)
-  (setq font-lock-use-default-fonts nil)
-  (setq font-lock-use-default-colors t)
-  (setq delete-key-deletes-forward t)
-  (setq c-electric-delete 'delete-char)
-  (setq c-delete-function 'delete-char)) ;;c-electric-delete delete-char))
+(c-add-style "AutoStore C++" autostore-c++-style)
+
+;; Customizations for all modes in CC Mode.
+(defun autostore-c++-mode-common-hook ()
+  ;; set my personal style for the current buffer
+  (c-set-style "AutoStore C++")
+  (setq tab-width 4
+        indent-tabs-mode nil))
+(add-hook 'c-mode-common-hook 'autostore-c++-mode-common-hook)
+
+;; (defun linux-c-mode ()
+;;   "C mode with adjusted defaults for use with the Linux kernel."
+;;   (interactive)
+;;   (c-mode)
+;;   (c-set-style "K&R")
+;;   (setq c-basic-offset 8)
+;;   (setq font-lock-use-default-fonts nil)
+;;   (setq font-lock-use-default-colors t)
+;;   (setq delete-key-deletes-forward t)
+;;   (setq c-electric-delete 'delete-char)
+;;   (setq c-delete-function 'delete-char)) ;;c-electric-delete delete-char))
+
+;; (defun linux-c++-mode ()
+;;   "C++ mode with adjusted defaults."
+;;   (interactive)
+;;   (c++-mode)
+;;   (c-set-style "K&R")
+;;   (setq c-basic-offset 8)
+;;   (setq font-lock-use-default-fonts nil)
+;;   (setq font-lock-use-default-colors t)
+;;   (setq delete-key-deletes-forward t)
+;;   (setq c-electric-delete 'delete-char)
+;;   (setq c-delete-function 'delete-char)) ;;c-electric-delete delete-char))
+
+;; (setq auto-mode-alist
+;;       (append '(("\\.C$"  . linux-c++-mode)
+;; 		("\\.cs$" . linux-c++-mode)
+;; 		("\\.cc$" . linux-c++-mode)
+;; 		("\\.cpp$" . linux-c++-mode)
+;; 		("\\.hh$" . linux-c++-mode)
+;; 		("\\.c$"  . linux-c-mode)
+;; 		("\\.h$"  . linux-c++-mode)
+;; 		("\\.H$"  . linux-c-mode)
+;; 		("\\.ASM$". asm-mode)
+;; 		("\\.asm$". asm-mode)
+;; 		("\\.A51$". asm-mode)
+;; 		("\\.a51$". asm-mode)
+;; 		("\\.CAS$". linux-c-mode)
+;; 		("\\.cos$". cos-mode)
+;; 		("\\.wsf$". javascript-mode)
+;; 		("\\.cas$". linux-c-mode))
+;; 	      auto-mode-alist))
 
 (setq auto-mode-alist
-      (append '(("\\.C$"  . linux-c++-mode)
-		("\\.cs$" . linux-c++-mode)
-		("\\.cc$" . linux-c++-mode)
-		("\\.cpp$" . linux-c++-mode)
-		("\\.hh$" . linux-c++-mode)
-		("\\.c$"  . linux-c-mode)
-		("\\.h$"  . linux-c++-mode)
-		("\\.H$"  . linux-c-mode)
-		("\\.ASM$". asm-mode)
-		("\\.asm$". asm-mode)
-		("\\.A51$". asm-mode)
-		("\\.a51$". asm-mode)
-		("\\.CAS$". linux-c-mode)
-		("\\.cos$". cos-mode)
-		("\\.wsf$". javascript-mode)
-		("\\.cas$". linux-c-mode))
+      (append '(("\\.mjs$" . javascript-mode))
 	      auto-mode-alist))
 
 (add-to-list 'load-path "~/lisp/org/lisp")
