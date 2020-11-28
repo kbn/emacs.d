@@ -383,4 +383,6 @@ BEG and END (region to sort)."
 ;; (smart-tabs-insinuate 'c 'c++ 'java 'javascript 'cperl 'python
 ;; 		      'ruby 'nxml)
 
+(setq desktop-restore-eager 10)
 (require 'desktop)
+(put 'upcase-region 'disabled nil)
