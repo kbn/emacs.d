@@ -62,9 +62,11 @@
  '(org-agenda-files
    (quote
     ("~/shared/Projects/Autostore/asplanner.org" "~/shared/doc/Cavatina/2010/Regnskap.org" "~/shared/org/cavatina.org" "~/shared/org/gtd.org")))
- '(package-selected-packages (quote (markdown-mode groovy-mode)))
+ '(package-selected-packages
+   (quote
+    (web-mode php-mode simplenote2 yaml-mode python-mode magit markdown-mode groovy-mode)))
  '(py-python-command "ipython")
- '(py-python-command-args (quote ("-i")))
+ '(py-python-command-args (quote ("--simple-prompt -i")))
  '(safe-local-variable-values
    (quote
     ((c-basic-offset 4)
@@ -345,6 +347,17 @@ BEG and END (region to sort)."
     (if (or (eq major-mode 'c-mode) (eq major-mode 'c++-mode))
         (doxymacs-font-lock)))
   (add-hook 'font-lock-mode-hook 'my-doxymacs-font-lock-hook))
+
+(when (require 'simplenote2 nil t)
+  (setq simplenote2-email "kristian@cavatina.no")
+  (setq simplenote2-password nil)
+  (setq simplenote2-markdown-notes-mode 'markdown-mode)
+  (add-hook 'simplenote2-note-mode-hook
+            (lambda ()
+              (local-set-key (kbd "C-c C-t") 'simplenote2-add-tag)
+              (local-set-key (kbd "C-c C-c") 'simplenote2-push-buffer)
+              (local-set-key (kbd "C-c C-d") 'simplenote2-pull-buffer)))
+  (simplenote2-setup))
 
 (defun strip-trailing-whitespace ()
   "remove all whitespace from the end of lines in the entire buffer"
