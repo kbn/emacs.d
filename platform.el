@@ -56,6 +56,33 @@
       ;; appear in the output of java applications.
       (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m))))
 
+(when running-ms-windows
+  (require 'compile)
+  ;; (add-hook 'c-mode-common-hook (lambda ()
+  ;;   (add-to-list
+  ;;    'compilation-error-regexp-alist-alist
+  ;;    '(msvc "^[ \t]*\\([A-Za-z0-9\\.][^(]*\\.\\(cpp\\|c\\|h\\)\\)(\\([0-9]+\\,[0-9]+\\)) *: +\\(error\\|fatal error\\|warning\\) C[0-9]+:" 1 3)))))
+
+  (mapcar
+
+   (lambda (x)
+     (add-to-list 'compilation-error-regexp-alist-alist x))
+
+   (list
+     ;; Microsoft C/C++:
+     ;;  keyboard.c(537) : warning C4005: 'min' : macro redefinition
+     ;;  d:\tmp\test.c(23) : error C2143: syntax error : missing ';' before 'if'
+     ;;  .\cppcli1.cpp(36): error C2059: syntax error : 'public'
+     ;;  e:\projects\myce40\tok.h(85) : error C2236: unexpected 'class' '$S1'
+     ;;  myc.cpp(14) : error C3149: 'class System::String' : illegal use of managed type 'String'; did you forget a '*'?
+     ;;   ("\\(\\([a-zA-Z]:\\)?[^:(\t\n]+\\)(\\([0-9]+\\)) ?\: \\(error\\|warning\\) C[0-9]+:" 1 3)
+    '(msvc "^[ \t]*\\([A-Za-z0-9\\.][^(]*\\.\\(cpp\\|c\\|h\\)\\)(\\([0-9]+\\,[0-9]+\\)) *: +\\(error\\|fatal error\\|warning\\) C[0-9]+:" 1 3)
+
+    ))
+
+    (setq compilation-error-regexp-alist
+          (mapcar 'car compilation-error-regexp-alist-alist)) )
+
 (defun remove-dos-eol ()
   "Do not show ^M in files containing mixed UNIX and DOS line endings."
   (interactive)
