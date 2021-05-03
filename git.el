@@ -7,3 +7,7 @@
 (when (require 'magit nil t)
   ;; no highlight
   (defun magit-highlight-section ()))
+
+;; Load ssh-agency.el helper on windows, if available.
+(ignore-errors
+  (load "ssh-agency.el"))

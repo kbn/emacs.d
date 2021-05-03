@@ -2,11 +2,23 @@
 (when (require 'package nil t)
   (setq package-enable-at-startup nil)
   (add-to-list 'package-archives
-	       '("melpa" . "http://melpa.org/packages/") t)
+	       '("melpa" . "https://melpa.org/packages/") t)
   (when (< emacs-major-version 24)
     ;; For important compatibility libraries like cl-lib
     (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
   (package-initialize))
+
+;;(when (require 'ein nil t)
+;;  (require 'ein-notebook)
+;;  (require 'ein-subpackages))
+
+(when (require 'pyvenv nil t)
+  (setenv "WORKON_HOME" "~/.venv/")
+  t)
+
+;(when (require 'elpy nil t)
+;  (setenv "WORKON_HOME" "~/.venv/")
+;  (elpy-enable))
 
 (defvar default-font-family (if (member "Consolas" (font-family-list))
 				"Consolas"
@@ -62,9 +74,10 @@
  '(org-agenda-files
    (quote
     ("~/shared/Projects/Autostore/asplanner.org" "~/shared/doc/Cavatina/2010/Regnskap.org" "~/shared/org/cavatina.org" "~/shared/org/gtd.org")))
+ '(org-confirm-babel-evaluate nil)
  '(package-selected-packages
    (quote
-    (web-mode php-mode simplenote2 yaml-mode python-mode magit markdown-mode groovy-mode)))
+    (blacken ein web-mode php-mode simplenote2 yaml-mode python-mode magit markdown-mode groovy-mode)))
  '(py-python-command "ipython")
  '(py-python-command-args (quote ("--simple-prompt -i")))
  '(safe-local-variable-values
