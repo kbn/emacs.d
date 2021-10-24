@@ -34,19 +34,17 @@
  '(blacken-only-if-project-is-blackened t)
  '(case-fold-search t)
  '(column-number-mode t)
- '(compilation-message-face (quote default))
+ '(compilation-message-face 'default)
  '(compile-command "DEBUG=1 make -j 2 -k")
  '(current-language-environment "English")
  '(custom-safe-themes
-   (quote
-    ("bf3ec301ea82ab546efb39c2fdd4412d1188c7382ff3bbadd74a8ecae4121678" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "fd0d98a75fb613edc1b4f1b8ca866a0315b494a21b44a93e15b47a096334a064" default)))
+   '("bf3ec301ea82ab546efb39c2fdd4412d1188c7382ff3bbadd74a8ecae4121678" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "fd0d98a75fb613edc1b4f1b8ca866a0315b494a21b44a93e15b47a096334a064" default))
  '(delete-selection-mode t nil (delsel))
  '(desktop-enable t nil (desktop))
  '(fci-rule-color "#073642")
  '(global-font-lock-mode t nil (font-lock))
  '(grep-files-aliases
-   (quote
-    (("asm" . "*.[sS]")
+   '(("asm" . "*.[sS]")
      ("c" . "*.c")
      ("cc" . "*.cc *.cxx *.cpp *.C *.CC *.c++")
      ("cchh" . "*.cc *.[ch]xx *.[ch]pp *.[CHh] *.CC *.HH *.[ch]++")
@@ -57,63 +55,53 @@
      ("l" . "[Cc]hange[Ll]og*")
      ("m" . "[Mm]akefile*")
      ("tex" . "*.tex")
-     ("texi" . "*.texi"))))
- '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
+     ("texi" . "*.texi")))
+ '(highlight-changes-colors '("#d33682" "#6c71c4"))
  '(highlight-tail-colors
-   (quote
-    (("#073642" . 0)
+   '(("#073642" . 0)
      ("#546E00" . 20)
      ("#00736F" . 30)
      ("#00629D" . 50)
      ("#7B6000" . 60)
      ("#8B2C02" . 70)
      ("#93115C" . 85)
-     ("#073642" . 100))))
+     ("#073642" . 100)))
  '(magit-diff-use-overlays nil)
  '(magit-use-overlays nil)
  '(menu-bar-mode nil)
  '(org-agenda-files
-   (quote
-    ("~/shared/Projects/Autostore/asplanner.org" "~/shared/doc/Cavatina/2010/Regnskap.org" "~/shared/org/cavatina.org" "~/shared/org/gtd.org")))
+   '("~/shared/Projects/Autostore/asplanner.org" "~/shared/doc/Cavatina/2010/Regnskap.org" "~/shared/org/cavatina.org" "~/shared/org/gtd.org"))
  '(org-confirm-babel-evaluate nil)
  '(package-selected-packages
-   (quote
-    (blacken ein web-mode php-mode simplenote2 yaml-mode python-mode magit markdown-mode groovy-mode)))
+   '(csharp-mode org-re-reveal blacken ein web-mode php-mode simplenote2 yaml-mode python-mode magit markdown-mode groovy-mode))
  '(py-python-command "ipython")
- '(py-python-command-args (quote ("--simple-prompt -i")))
+ '(py-python-command-args '("--simple-prompt -i"))
  '(safe-local-variable-values
-   (quote
-    ((c-basic-offset 4)
+   '((c-basic-offset 4)
      (eval when
-	   (require
-	    (quote rainbow-mode)
-	    nil t)
-	   (rainbow-mode 1)))))
+	   (require 'rainbow-mode nil t)
+	   (rainbow-mode 1))))
  '(scroll-bar-mode nil)
  '(show-paren-mode t nil (paren))
  '(solarized-distinct-fringe-background t)
  '(solarized-high-contrast-mode-line t)
  '(syslog-debug-face
-   (quote
-    ((t :background unspecified :foreground "#2aa198" :weight bold))))
+   '((t :background unspecified :foreground "#2aa198" :weight bold)))
  '(syslog-error-face
-   (quote
-    ((t :background unspecified :foreground "#dc322f" :weight bold))))
- '(syslog-hour-face (quote ((t :background unspecified :foreground "#859900"))))
+   '((t :background unspecified :foreground "#dc322f" :weight bold)))
+ '(syslog-hour-face '((t :background unspecified :foreground "#859900")))
  '(syslog-info-face
-   (quote
-    ((t :background unspecified :foreground "#268bd2" :weight bold))))
- '(syslog-ip-face (quote ((t :background unspecified :foreground "#b58900"))))
- '(syslog-su-face (quote ((t :background unspecified :foreground "#d33682"))))
+   '((t :background unspecified :foreground "#268bd2" :weight bold)))
+ '(syslog-ip-face '((t :background unspecified :foreground "#b58900")))
+ '(syslog-su-face '((t :background unspecified :foreground "#d33682")))
  '(syslog-warn-face
-   (quote
-    ((t :background unspecified :foreground "#cb4b16" :weight bold))))
+   '((t :background unspecified :foreground "#cb4b16" :weight bold)))
  '(tool-bar-mode nil nil (tool-bar))
  '(transient-mark-mode t)
+ '(user-full-name "Kristian Berge Nessa")
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
-   (quote
-    ((20 . "#dc322f")
+   '((20 . "#dc322f")
      (40 . "#CF4F1F")
      (60 . "#C26C0F")
      (80 . "#b58900")
@@ -130,12 +118,11 @@
      (300 . "#299BA6")
      (320 . "#2896B5")
      (340 . "#2790C3")
-     (360 . "#268bd2"))))
+     (360 . "#268bd2")))
  '(vc-annotate-very-old-color nil)
- '(vc-handled-backends (quote (Bzr Git Hg Mtn Arch SVN CVS SCCS RCS)))
+ '(vc-handled-backends '(Bzr Git Hg Mtn Arch SVN CVS SCCS RCS))
  '(weechat-color-list
-   (quote
-    (unspecified "#002b36" "#073642" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#839496" "#657b83"))))
+   '(unspecified "#002b36" "#073642" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#839496" "#657b83")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
