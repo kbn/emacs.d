@@ -76,3 +76,9 @@
 	   )
 	  ("org" :components ("org-notes" "org-static"))
 	  )))
+
+(when (require 'org-re-reveal nil t)
+  (setq org-re-reveal-root "file:///C:/Users/2795/src/reveal.js"))
+
+(setq org-src-preserve-indentation t)
+(setq org-edit-src-content-indentation 0)
