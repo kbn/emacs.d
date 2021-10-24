@@ -31,6 +31,7 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
    ["#002b36" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#839496"])
+ '(blacken-only-if-project-is-blackened t)
  '(case-fold-search t)
  '(column-number-mode t)
  '(compilation-message-face (quote default))
