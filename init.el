@@ -398,5 +398,7 @@ BEG and END (region to sort)."
 ;; 		      'ruby 'nxml)
 
 (setq desktop-restore-eager 10)
-(require 'desktop)
+(when (require 'desktop nil t)
+  (desktop-read))
+
 (put 'upcase-region 'disabled nil)
