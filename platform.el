@@ -4,8 +4,18 @@
 (defvar running-gnu-linux
   (string-match "linux" (prin1-to-string system-type)))
 
+(defvar running-macos
+  (string-match "darwin" (prin1-to-string system-type)))
+
 (set-default-coding-systems 'utf-8-unix)
 (prefer-coding-system 'utf-8-unix)
+
+(when running-macos
+  (setq ns-alternate-modifier     nil
+	ns-command-modifier       'meta
+	ns-function-modifier      'hyper
+	ns-right-command-modifier 'super)
+  (set-language-environment "UTF-8"))
 
 ;; Use find/grep from MSYS git, if available
 (when running-ms-windows
